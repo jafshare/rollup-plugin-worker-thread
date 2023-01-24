@@ -11,7 +11,7 @@
   "scripts": {
     "prepare": "npx husky install",
     "dev": "rollup -c -w --configPlugin typescript",
-    "build": "rollup -c",
+    "build": "rollup -c --configPlugin typescript",
     "lint": "eslint --cache --fix  --ext .js,.ts ."
   },
   "devDependencies": {

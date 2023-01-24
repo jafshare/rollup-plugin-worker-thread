@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-worker-thread",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "keywords": [
     "rollup",
     "plugin",

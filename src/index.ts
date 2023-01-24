@@ -1,5 +1,6 @@
 import type { NormalizedInputOptions, Plugin } from "rollup";
 const WORKER_FLAG = "?worker";
+const getResolveUrl = (path: string, URL = "URL") => `new ${URL}(${path}).href`;
 /**
  * 提供rollup对nodejs的worker_threads的支持
  */
@@ -26,9 +27,17 @@ function rollupPluginWorker(): Plugin {
           type: "chunk",
           id: finialId
         });
-        // TODO 暂时使用import.meta.ROLLUP_FILE_URL_{referenceId}语法，后续使用自己的语法
-        // 虚拟模块
-        return `const originFilePath = import.meta.ROLLUP_FILE_URL_${referenceId};\nexport default originFilePath.slice(8);`;
+        // 虚拟模块，导出文件的路径
+        return `export default import.meta.ROLLUP_FILE_URL_${referenceId};`;
+      }
+    },
+    // 自定义import.meta.ROLLUP_FILE_URL_{referenceId}的生成，对cjs特殊处理,默认会以file:///开头
+    resolveFileUrl({ relativePath, format }) {
+      if (format === "cjs") {
+        return getResolveUrl(
+          `__dirname + '/${relativePath}'`,
+          `(require('u' + 'rl').URL)`
+        );
       }
     }
   };

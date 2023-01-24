@@ -37,13 +37,13 @@ importers:
       '@rollup/plugin-typescript': ^11.0.0
       plugin-node-resolve: ^8.0.11
       rollup: ^3.10.1
-      rollup-plugin-worker: workspace:*
+      rollup-plugin-worker-thread: workspace:^1.0.1
       typescript: ^4.9.4
     devDependencies:
       '@rollup/plugin-typescript': registry.npmmirror.com/@rollup/plugin-typescript/11.0.0_p3yyytxbmytz5gvmi4zzszibjy
       plugin-node-resolve: registry.npmmirror.com/plugin-node-resolve/8.0.11
       rollup: registry.npmmirror.com/rollup/3.10.1
-      rollup-plugin-worker: link:../..
+      rollup-plugin-worker-thread: link:../..
       typescript: registry.npmmirror.com/typescript/4.9.4
 
 packages:

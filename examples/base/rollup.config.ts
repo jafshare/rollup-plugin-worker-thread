@@ -1,7 +1,7 @@
 import { defineConfig } from "rollup";
 import nodeResolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
-import worker from "rollup-plugin-worker";
+import worker from "rollup-plugin-worker-thread";
 export default defineConfig({
   input: "src/index.ts",
   output: {

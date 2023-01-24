@@ -15,7 +15,7 @@
     "@rollup/plugin-typescript": "^11.0.0",
     "plugin-node-resolve": "^8.0.11",
     "rollup": "^3.10.1",
-    "rollup-plugin-worker": "workspace:*",
+    "rollup-plugin-worker-thread": "workspace:^1.0.1",
     "typescript": "^4.9.4"
   }
 }

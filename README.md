@@ -1,6 +1,6 @@
 # rollup-plugin-worker-thread
 
-提供 rollup 对 nodejs 的 worker_threads 的支持，使用方法类似于`vite`的`?worker`语法
+提供 rollup 对 nodejs 的 worker_threads 的支持，使用方法类似于 vite 的 ?worker 语法
 
 ## 安装
 
@@ -31,4 +31,13 @@ main.ts
 import { Worker } from "worker_threads";
 import workPath from "./worker?worker"; // 使用?worker标识是一个worker文件
 new Worker(workPath);
+```
+
+rollup.config.ts
+
+```typescript
+import worker from "rollup-plugin-worker-thread";
+export default defineConfig({
+  plugins: [worker()]
+});
 ```

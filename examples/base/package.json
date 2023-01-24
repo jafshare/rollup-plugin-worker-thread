@@ -1,0 +1,21 @@
+{
+  "name": "base",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "rollup -c -w --configPlugin typescript",
+    "build": "rollup -c",
+    "run": "node ./dist/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.0.0",
+    "plugin-node-resolve": "^8.0.11",
+    "rollup": "^3.10.1",
+    "rollup-plugin-worker": "workspace:*",
+    "typescript": "^4.9.4"
+  }
+}

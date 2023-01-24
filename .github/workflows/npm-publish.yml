@@ -1,0 +1,41 @@
+# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
+# For more information see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages
+
+name: rollup-plugin-worker-thread
+
+on:
+  push:
+    branches:
+      - main
+      - "releases/**"
+
+jobs:
+  # build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 16
+  #     - run: npm install
+  #     - run: npm run build
+
+  publish-npm:
+    # needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+      - name: 安装pnpm
+        run: npm i -g pnpm
+      - name: 安装依赖
+        run: pnpm i
+      - name: 打包
+        run: pnpm run build
+      - name: 发布npm包
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}} # npm的token信息

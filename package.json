@@ -1,0 +1,36 @@
+{
+  "name": "rollup-plugin-worker-thread",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "types"
+  ],
+  "scripts": {
+    "prepare": "npx husky install",
+    "dev": "rollup -c -w --configPlugin typescript",
+    "build": "rollup -c",
+    "lint": "eslint --cache --fix  --ext .js,.ts ."
+  },
+  "devDependencies": {
+    "@antfu/eslint-config-ts": "0.34.1",
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "eslint": "^8.29.0",
+    "eslint-config-prettier": "^8.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.8.1",
+    "rollup": "^3.10.1",
+    "typescript": "4.9.4"
+  },
+  "lint-staged": {
+    "*.{ts,js}": "eslint --cache --fix --ext .js,.ts .",
+    "*.{js,ts,md,json}": "prettier --ignore-unknown --write"
+  }
+}
